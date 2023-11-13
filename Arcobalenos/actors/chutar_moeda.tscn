@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://c5k4kbsdqjok6"]
+
+[ext_resource type="Texture2D" uid="uid://dt4385raw60pa" path="res://assets/Mini FX, Items & UI/Common Pick-ups/Coin (16 x 16).png" id="1_012mu"]
+[ext_resource type="Script" path="res://scripts/chutar_moeda.gd" id="1_jpp5s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tpvhk"]
+radius = 5.09902
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ja3w"]
+atlas = ExtResource("1_012mu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7y2t"]
+atlas = ExtResource("1_012mu")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oinsl"]
+atlas = ExtResource("1_012mu")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1mcg"]
+atlas = ExtResource("1_012mu")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u6ams"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ja3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7y2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oinsl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1mcg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 13.0
+}]
+
+[node name="chutar_moeda" type="Area2D"]
+position = Vector2(56, 105)
+collision_layer = 16
+collision_mask = 134
+script = ExtResource("1_jpp5s")
+metadata/_edit_group_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_tpvhk")
+
+[node name="Anim" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5625, 0.5)
+sprite_frames = SubResource("SpriteFrames_u6ams")
+autoplay = "default"
+frame = 3
+frame_progress = 1.0
+
+[node name="visibility" type="VisibleOnScreenEnabler2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="visibility" to="." method="_on_visibility_screen_exited"]

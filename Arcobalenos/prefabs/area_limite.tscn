@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmmp4vhkn3hoi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yluw2"]
+size = Vector2(246, 20)
+
+[node name="area_limite" type="Area2D" groups=["armadilhas"]]
+collision_layer = 8
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(113, 0)
+shape = SubResource("RectangleShape2D_yluw2")

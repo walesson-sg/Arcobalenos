@@ -1,0 +1,242 @@
+[gd_scene load_steps=15 format=3 uid="uid://orfxw035mhbw"]
+
+[ext_resource type="Script" path="res://scripts/enemyFuturista.gd" id="1_cc27a"]
+[ext_resource type="Texture2D" uid="uid://ckydq6ll0mnn" path="res://Nova pasta (3)/Enemy/Futurista/baseT/5 - Robot_Walky_Movement (32 x 32).png" id="1_okx6i"]
+[ext_resource type="Texture2D" uid="uid://dpbwiocxwgkfg" path="res://Nova pasta (3)/Enemy/Futurista/baseT/5 - Robot_Walky_Hurt (32 x 32).png" id="2_cgxsb"]
+[ext_resource type="Texture2D" uid="uid://70n0j20a2ja3" path="res://Nova pasta (3)/Enemy/Futurista/baseT/5 - Robot_Walky_Idle (32 x 32).png" id="2_iyq07"]
+[ext_resource type="Script" path="res://scripts/hitboxRobo.gd" id="5_diqn3"]
+[ext_resource type="Script" path="res://Nova pasta (3)/Actors/hitbox2.gd" id="6_mrflp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oh4du"]
+radius = 9.0
+
+[sub_resource type="Animation" id="Animation_suvic"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_okx6i")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("texture:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("texture:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_aml3y"]
+resource_name = "ibcorrendo"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_okx6i")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("texture:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("texture:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_jwtin"]
+resource_name = "ibmachucado"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_cgxsb")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("texture:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("texture:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_p7cu4"]
+resource_name = "ibparado"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_iyq07")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("texture:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("texture:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f5b3f"]
+_data = {
+"RESET": SubResource("Animation_suvic"),
+"ibcorrendo": SubResource("Animation_aml3y"),
+"ibmachucado": SubResource("Animation_jwtin"),
+"ibparado": SubResource("Animation_p7cu4")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t75xl"]
+size = Vector2(9, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yp7mh"]
+size = Vector2(4, 18)
+
+[node name="enemy" type="CharacterBody2D" groups=["enemies"]]
+collision_mask = 2
+script = ExtResource("1_cc27a")
+
+[node name="texture" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("1_okx6i")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -8)
+shape = SubResource("CircleShape2D_oh4du")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "ibcorrendo"
+speed_scale = 0.5
+libraries = {
+"": SubResource("AnimationLibrary_f5b3f")
+}
+
+[node name="wall_detector" type="RayCast2D" parent="."]
+position = Vector2(2, -7)
+target_position = Vector2(-12, 0)
+
+[node name="hitbox" type="Area2D" parent="."]
+position = Vector2(0, -2)
+collision_layer = 128
+script = ExtResource("5_diqn3")
+
+[node name="collision" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(1, -17)
+shape = SubResource("RectangleShape2D_t75xl")
+
+[node name="hitbox2" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 17
+script = ExtResource("6_mrflp")
+
+[node name="collision2" type="CollisionShape2D" parent="hitbox2"]
+position = Vector2(-8, -8)
+shape = SubResource("RectangleShape2D_yp7mh")
+
+[node name="collision3" type="CollisionShape2D" parent="hitbox2"]
+position = Vector2(9, -8)
+shape = SubResource("RectangleShape2D_yp7mh")
+
+[node name="detector_structures" type="RayCast2D" parent="."]
+position = Vector2(0, -3)
+target_position = Vector2(-15, -2)
+collision_mask = 6
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="hitbox" to="hitbox" method="_on_body_entered"]
+[connection signal="area_entered" from="hitbox2" to="." method="_on_hitbox_2_area_entered"]
+[connection signal="area_entered" from="hitbox2" to="hitbox2" method="_on_area_entered"]

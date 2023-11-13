@@ -1,0 +1,91 @@
+[gd_scene load_steps=10 format=3 uid="uid://buquoypfpyx4k"]
+
+[ext_resource type="Script" path="res://scripts/menu_controles.gd" id="1_p07b8"]
+[ext_resource type="Texture2D" uid="uid://ctawpufrg6p7x" path="res://1274991.png" id="2_2xqce"]
+[ext_resource type="PackedScene" uid="uid://cgc1p6h6iwg06" path="res://Scene/transition.tscn" id="3_5k406"]
+[ext_resource type="FontFile" uid="uid://dw0byh6cpwq4u" path="res://font/PressStart2P.ttf" id="4_acw5y"]
+[ext_resource type="Texture2D" uid="uid://bjxgbm88kuy23" path="res://planets/Lava.png" id="5_yfh21"]
+[ext_resource type="Texture2D" uid="uid://c142cmke1dpy0" path="res://planets/Ice.png" id="6_8m204"]
+[ext_resource type="Texture2D" uid="uid://debice4r1bi07" path="res://planets/Baren.png" id="7_hnpug"]
+[ext_resource type="Texture2D" uid="uid://byeixju5mljby" path="res://planets/Terran.png" id="8_ppn2e"]
+[ext_resource type="Texture2D" uid="uid://b8q0ksehvbmwj" path="res://planets/Black_hole.png" id="9_6vlky"]
+
+[node name="menu_controles" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p07b8")
+
+[node name="Black2" type="Sprite2D" parent="."]
+position = Vector2(317.5, 160)
+scale = Vector2(0.334896, 0.290741)
+texture = ExtResource("2_2xqce")
+
+[node name="transition" parent="." instance=ExtResource("3_5k406")]
+visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 5.0
+offset_right = 155.0
+offset_bottom = 106.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Voltar" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_acw5y")
+text = "Voltar"
+
+[node name="Lava" type="Sprite2D" parent="."]
+position = Vector2(120, 94)
+scale = Vector2(2.5, 2.36458)
+texture = ExtResource("5_yfh21")
+
+[node name="Ice" type="Sprite2D" parent="."]
+position = Vector2(190, 256)
+scale = Vector2(2.5, 2.36458)
+texture = ExtResource("6_8m204")
+
+[node name="Baren" type="Sprite2D" parent="."]
+position = Vector2(517, 90)
+scale = Vector2(2.5, 2.36458)
+texture = ExtResource("7_hnpug")
+
+[node name="Terra" type="Sprite2D" parent="."]
+position = Vector2(450, 256)
+scale = Vector2(2.5, 2.36458)
+texture = ExtResource("8_ppn2e")
+
+[node name="Black" type="Sprite2D" parent="."]
+position = Vector2(325, 2)
+scale = Vector2(2.5, 2.36458)
+texture = ExtResource("9_6vlky")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 157.0
+offset_top = 103.0
+offset_right = 493.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0.760784, 1, 0.815686, 1)
+theme_override_fonts/font = ExtResource("4_acw5y")
+theme_override_font_sizes/font_size = 10
+text = "Andar para frente: seta direita
+Andar para trás: 	  seta esquerda
+Pular:             seta para cima
+Atirar:            tecla X"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Voltar" to="." method="_on_voltar_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Voltar" to="." method="_on_sair_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Voltar" to="." method="_on_play_pressed"]

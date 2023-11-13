@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxoxo5o7q7rvt"]
+
+[ext_resource type="Texture2D" uid="uid://2ftf8qqpyx2k" path="res://SnowTile/spikesBottom.png" id="1_q72wb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7eytq"]
+size = Vector2(57, 24)
+
+[node name="espinhos" type="Area2D" groups=["armadilha"]]
+collision_layer = 8
+collision_mask = 257
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -12)
+shape = SubResource("RectangleShape2D_7eytq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -29)
+scale = Vector2(1, 0.828571)
+texture = ExtResource("1_q72wb")

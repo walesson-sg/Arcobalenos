@@ -1,0 +1,95 @@
+[gd_scene load_steps=9 format=3 uid="uid://d4uwpgg16y52"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_3atqa"]
+[ext_resource type="Texture2D" uid="uid://ctawpufrg6p7x" path="res://1274991.png" id="2_dpwcp"]
+[ext_resource type="Texture2D" uid="uid://c142cmke1dpy0" path="res://planets/Ice.png" id="2_t607d"]
+[ext_resource type="Texture2D" uid="uid://bjxgbm88kuy23" path="res://planets/Lava.png" id="3_kyoy8"]
+[ext_resource type="FontFile" uid="uid://dw0byh6cpwq4u" path="res://font/PressStart2P.ttf" id="4_s1hh6"]
+[ext_resource type="Texture2D" uid="uid://debice4r1bi07" path="res://planets/Baren.png" id="5_af7h7"]
+[ext_resource type="Texture2D" uid="uid://byeixju5mljby" path="res://planets/Terran.png" id="6_yixu4"]
+[ext_resource type="Texture2D" uid="uid://b8q0ksehvbmwj" path="res://planets/Black_hole.png" id="7_v0xi7"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3atqa")
+
+[node name="Black2" type="Sprite2D" parent="."]
+position = Vector2(317.5, 160)
+scale = Vector2(0.334896, 0.290741)
+texture = ExtResource("2_dpwcp")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 242.0
+offset_top = 117.0
+offset_right = 394.0
+offset_bottom = 218.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_s1hh6")
+text = "Jogar"
+
+[node name="Controles" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_s1hh6")
+text = "Controles"
+
+[node name="Sair" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_s1hh6")
+text = "Sair"
+
+[node name="Lava" type="Sprite2D" parent="."]
+position = Vector2(120, 94)
+scale = Vector2(2.5, 2.36458)
+texture = ExtResource("3_kyoy8")
+
+[node name="Ice" type="Sprite2D" parent="."]
+position = Vector2(190, 256)
+scale = Vector2(2.5, 2.36458)
+texture = ExtResource("2_t607d")
+
+[node name="Baren" type="Sprite2D" parent="."]
+position = Vector2(517, 90)
+scale = Vector2(2.5, 2.36458)
+texture = ExtResource("5_af7h7")
+
+[node name="Terra" type="Sprite2D" parent="."]
+position = Vector2(450, 256)
+scale = Vector2(2.5, 2.36458)
+texture = ExtResource("6_yixu4")
+
+[node name="Black" type="Sprite2D" parent="."]
+position = Vector2(325, 2)
+scale = Vector2(2.5, 2.36458)
+texture = ExtResource("7_v0xi7")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 78.0
+offset_right = 501.0
+offset_bottom = 111.0
+theme_override_colors/font_color = Color(0.933333, 0, 0.52549, 1)
+theme_override_fonts/font = ExtResource("4_s1hh6")
+theme_override_font_sizes/font_size = 27
+text = "ARCOBALENOS"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Controles" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Controles" to="." method="_on_controles_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Sair" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Sair" to="." method="_on_sair_pressed"]
